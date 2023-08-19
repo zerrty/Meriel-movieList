@@ -4,10 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meriel</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/b9d99bca65.js" crossorigin="anonymous"></script>
+
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:wght@600&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__left-wrapper">
+                <a href=""><h1 class="header__title">Meriel</h1></a>
+                <nav class="header__nav">
+                    <ul class="header__navigation-list activeMenu">
+                        <li class="header__navigation-item"><a href="#">Films</a></li>
+                        <li class="header__navigation-item"><a href="#">Serials</a></li>
+                        <li class="header__navigation-item"><a href="#">Persons</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="header__right-wrapper">
+                <form class="header__search-form" action="" method="get">
+                    <button type="submit" class="header__search-icon"></button>
+                    <div class="header__search-field">
+                        <input class="header__search-input" type="text" placeholder="Search">
+                    </div>
+                    <span class="clear"></span>
+                    <!-- <input class="header__search-input" type="text"> -->
+                    <!-- <button class="header__search-button" type="submit"> -->
+                        <!-- <i class="header__search-icon fa-solid fa-magnifying-glass"></i> -->
+                    <!-- </button> -->
+                </form>
+        
+                <nav class="header__menu menu">
+                    <ul class="menu__list">
+                        <li class="menu__item">
+                            <i class="menu__icon fa-regular fa-user fa-xl"></i>
+                        </li>
+                    </ul>
+                    <ul class="header__navigation-list">
+                        <li class="header__navigation-item"><a href="#">Films</a></li>
+                        <li class="header__navigation-item"><a href="#">Serials</a></li>
+                        <li class="header__navigation-item"><a href="#">Persons</a></li>
+                    </ul>
+                </nav>
+                <div class="header__burger">
+                    <span></span>
+                </div>
+            </div>
+        </header>
+
+
+        <main class="main"></main>
+
+        <footer class="footer">@2023</footer>
+    </div>
 
 
     <script type="module" src="./index.js"></script>
