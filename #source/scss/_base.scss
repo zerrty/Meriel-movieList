@@ -31,4 +31,26 @@ a{
 body{
     min-height: 100vh;
     font-family: 'Ubuntu', sans-serif;
+
+    &._lock{
+        overflow: hidden;
+    }
+}
+
+
+.milk-shadow{
+    @media (max-width:768px) {
+        position: fixed;
+        top:0; right:0; left:0;
+        height: 0;
+        background-color: #000;
+        opacity: 0;
+        transition: opacity 500ms;
+    }
+
+
+    &._active{
+        height: 100%; 
+        opacity: .7;
+    }
 }

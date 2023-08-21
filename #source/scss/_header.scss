@@ -45,6 +45,16 @@
         gap: 25px;
         font-size: 20px;
         font-weight: 500;
+
+        @media (max-width:768px) {
+            flex-direction: column;
+            font-size: 25px;
+        }
+
+
+        &._active{
+            display: flex;
+        }
     }
 
 
@@ -74,6 +84,10 @@
             transition: all ease-in-out 300ms;
             width: 100%;
            }
+
+        //    @media (max-width:768px) {
+        //         color: #fff;
+        //    }
         }
     }
 
@@ -92,6 +106,11 @@
         padding: 0;
         display: flex;
         align-items: center;
+
+        &.active{
+            width: 300px;
+        }
+
         & .header__search-icon{
             position: absolute;
             top: -1px;
@@ -173,11 +192,13 @@
             }
             &::before{
                 content: '';
-                transform: rotate(45deg);
+                top: 50%;
+                transform: rotate(45deg) translateY(-2%);
             }
             &::after{
                 content: '';
-                transform: rotate(-45deg);
+                bottom: 50%;
+                transform: rotate(-45deg)  translateY(-2%);
             }
         }
     }
@@ -187,29 +208,53 @@
 
 
     &__burger{
-        display: block;
-        position: relative;
-        width: 25px;
-        height: 20px;
-        cursor: pointer;
-
-        &::before, &::after, &>span{
-            content: '';
+        display: none;
+        @media (max-width:768px) {
             display: block;
-            position: absolute;
-            width: 100%;
-            height: 4px;
-            background-color: #000;
-        }
-        &::before{
-            top: 0;
-        }
-        &::after{
-            bottom: 0;
-        }
-        &>span{
-            top: 50%;
-            transform: scale(1) translate(0, -50%);
+            position: relative;
+            width: 32px;
+            height: 28px;
+            cursor: pointer;
+            z-index: 11;
+
+            &::before, &::after, &>span{
+                content: '';
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                background-color: #000;
+                transition: all ease 300ms;
+                border-radius: 10px;
+            }
+            &::before{
+                top: 0;
+            }
+            &::after{
+                bottom: 0;
+            }
+            &>span{
+                top: 50%;
+                transform: scale(1) translate(0, -50%);
+            }
+
+            &._active{
+               
+                span{
+                    transform: scale(0);
+                }
+
+                &::before{
+                    top: 50%;
+                    transform: rotate(-45deg) translate(0,-62%);
+                    background-color: var(--main-color);
+                }
+                &::after{
+                    bottom: 50%;
+                    transform: rotate(45deg) translate(0,62%);
+                    background-color: var(--main-color);
+                }
+            }   
         }
     }
 }
@@ -231,32 +276,51 @@
     }
 
     @media (max-width: 768px) {
-        position: absolute;
-        width: 100vw;
+        position: fixed;
+        width: 50vw;
         height: 100vh;
-        background-color: rgba($color: #000, $alpha: .5);
+        // background-color: rgba($color: #000, $alpha: .7);
+        background-color: #fff;
         z-index: 10;
         top: 0;
-        // left: 100%;
-        left: 0;
+        right: -100%;
+        // right: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 40px;
         padding: 90px 20px;
+        overflow: auto;
+    }
+
+
+    &._active{
+        right: 0;
+        
+        &::before{
+            content: '';
+            right: 0%;
+        }
+
+        
+    }
+
+    &::before{
+        transition: right ease 300ms;
+        @media (max-width:768px) {
+            content: '';
+            position: fixed;
+            width: 50vw;
+            top: 0;
+            right: -100%;
+            height: 70px;
+            z-index: 8;
+            background-color: #fff;
+        }
     }
 
 
 }
 
-.active{
-    width: 300px;
-}
 
-.activeBurger{
-    left: 0;
-}
 
-.activeMenu{
-    display: flex;
-}
