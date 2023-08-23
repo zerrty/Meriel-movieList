@@ -30,10 +30,10 @@
             </div>
             
             <div class="header__right-wrapper">
-                <form class="header__search-form" action="" method="get">
-                    <button type="submit" class="header__search-icon"></button>
+                <form class="header__search-form" action="" method="get" >
+                    <button name="search-button" type="submit" class="header__search-icon"></button>
                     <div class="header__search-field">
-                        <input class="header__search-input" type="text" placeholder="Search">
+                        <input class="header__search-input" name="searchField" type="text" placeholder="Search">
                     </div>
                     <span class="clear"></span>
                 </form>
@@ -58,6 +58,14 @@
 
 
         <main class="main">
+            <section class="search-results">
+                <h2 class="search-results__title"></h2>
+                <ul class="search-results__film-list">
+                    
+                </ul>
+                <button class="search-results__load-more">Load More</button>
+                
+            </section>
         </main>
 
         <footer class="footer">@2023</footer>

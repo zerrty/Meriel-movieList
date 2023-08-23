@@ -1,23 +1,48 @@
+import Api from './modules/Api.js';
+const API = new Api();
+
+async function loadMovie(){
+    
+
+    await API.renderPopularMovies();
+}
+
+async function loadSearchResults(query){
 
 
-
-// search button
-const searchIcon = document.querySelector('.header__search-icon');
+    await API.renderSearchedMovies(query, 1, true);
+}
+// Search
 const searchContainer = document.querySelector('.header__search-form');
 const clear = document.querySelector('.clear');
 const searchInput = document.querySelector('.header__search-input');
 const searchForm = document.querySelector('.header__search-form');
+const loadMoreBtn = document.querySelector('.search-results__load-more');
+
 // Замніити на взаємодію з формор.
 
 
 searchForm.addEventListener('submit', (evt) =>{
     evt.preventDefault();
-    // search functionality
+    if(evt.target.classList.contains('active') && evt.target.searchField.value.length !=0){
+        query = evt.target.searchField.value;
+        evt.target.searchField.value = '';
+        loadSearchResults(query);
+    }
+    searchContainer.classList.toggle('active');
+    
+    
+    loadMoreBtn.addEventListener('click', (evt) => {
+        API.renderSearchedMovies
+    });
 });
 
-searchIcon.addEventListener('click', (evt) =>{
-    searchContainer.classList.toggle('active');
-});
+
+
+
+// searchIcon.addEventListener('click', (evt) =>{
+//     searchContainer.classList.toggle('active');
+// });
 
 clear.addEventListener('click', (evt) =>{
     searchInput.value = '';
@@ -34,6 +59,9 @@ document.addEventListener("DOMContentLoaded", (evt) =>{
         navigationWrapper[1].classList.remove('_active');
         navigationWrapper[0].classList.add('_active');
     }
+
+    loadMovie();
+    
 });
 
 window.addEventListener('resize', (evt) =>{
